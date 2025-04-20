@@ -40,6 +40,7 @@ const SignIn =()=> {
 
     const onSubmit = async (data: z.infer<typeof signInFormSchema>)=> {
        console.log(data)
+        debugger
        const payload :LoginRequestParams ={
            userName:data.username,
            password:data.password,
@@ -52,7 +53,7 @@ const SignIn =()=> {
     }
 
     return (
-        <div className="w-1/4 border border-indigo-700 px-5 py-8 rounded-lg">
+        <div className="w-1/4 border border-indigo-800 px-5 py-8 rounded-lg">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-5">
                     <FormField
@@ -62,7 +63,7 @@ const SignIn =()=> {
                             <FormItem>
                                 <FormLabel>Username</FormLabel>
                                 <FormControl>
-                                    <Input className="border-indigo-700 text-indigo-800 font-medium" placeholder="User Name" {...field} />
+                                    <Input className="border-indigo-800 text-indigo-800 font-medium" placeholder="User Name" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -75,7 +76,7 @@ const SignIn =()=> {
                             <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input type="password" className="border-indigo-700 text-indigo-800 font-medium" placeholder="Password" {...field} />
+                                    <Input type="password" className="border-indigo-800 text-indigo-800 font-medium" placeholder="Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -91,7 +92,7 @@ const SignIn =()=> {
                                 Remember Me
                             </label>
                         </div>
-                        <Button type="submit" className="cursor-pointer bg-indigo-800">Submit</Button>
+                        <Button type="submit" className="cursor-pointer">Submit</Button>
                     </div>
                 </form>
             </Form>
