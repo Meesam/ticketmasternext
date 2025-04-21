@@ -39,8 +39,6 @@ const SignIn =()=> {
     })
 
     const onSubmit = async (data: z.infer<typeof signInFormSchema>)=> {
-       console.log(data)
-        debugger
        const payload :LoginRequestParams ={
            userName:data.username,
            password:data.password,

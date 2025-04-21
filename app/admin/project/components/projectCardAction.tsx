@@ -7,7 +7,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {MoreVertical, EyeIcon} from "lucide-react";
+import {MoreVertical, EyeIcon, EditIcon, TrashIcon} from "lucide-react";
 import * as React from "react";
 
 const ProjectCardAction  = () => {
@@ -19,15 +19,17 @@ const ProjectCardAction  = () => {
             <DropdownMenuContent align="end">
                 <DropdownMenuItem>
                     <EyeIcon />
-                    View
+                    <span className="text-xs">View</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    Edit
+                    <EditIcon />
+                    <span className="text-xs">Edit</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    Delete
+                    <TrashIcon />
+                    <span className="text-xs">Delete</span>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

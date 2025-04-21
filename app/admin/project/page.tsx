@@ -17,6 +17,20 @@ const products:ProjectResponse[] = [
         projectDescription:"Second project description",
         projectStartDate:new Date(),
         projectEndDate:new Date(),
+    },
+    {
+        id:3,
+        projectTitle:'Third Project',
+        projectDescription:"Third project description",
+        projectStartDate:new Date(),
+        projectEndDate:new Date(),
+    },
+    {
+        id:4,
+        projectTitle:'Fourth Project',
+        projectDescription:"Fourth project description",
+        projectStartDate:new Date(),
+        projectEndDate:new Date(),
     }
 ]
 
