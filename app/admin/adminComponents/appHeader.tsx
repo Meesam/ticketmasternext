@@ -3,8 +3,6 @@ import {ModeToggle} from "@/app/(common)/toggleTheme";
 import React from "react";
 import {
     Search,
-    Mail,
-    Bell,
 } from "lucide-react"
 import {
     Dialog,
@@ -13,27 +11,8 @@ import {
 import AdminAppSearch from "@/app/admin/adminComponents/appSearch";
 
 import AppUserProflePopover from "@/components/appUserProflePopover";
-
-const RenderIcon = ({type}:{type:string})=>{
-
-    const handleIconRender = () =>{
-        switch(type){
-            case "Bell":
-                return <Bell size={18} className="text-gray-500" />;
-            case "Inbox":
-                return <Mail size={18} className="text-gray-500" />;
-            default:
-                return null;
-        }
-    }
-    return(
-        <div className="h-9 w-9 flex items-center justify-center border rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-900">
-            {
-                handleIconRender()
-            }
-        </div>
-    )
-}
+import AppNotification from "@/app/admin/adminComponents/appNotification";
+import AppMails from "@/app/admin/adminComponents/appMails";
 
 
 const AdminAppHeader = () =>{
@@ -58,8 +37,8 @@ const AdminAppHeader = () =>{
                        <SidebarTrigger />
                    </div>
                    <ModeToggle />
-                   <RenderIcon type="Bell" />
-                   <RenderIcon type="Inbox" />
+                   <AppNotification />
+                   <AppMails />
                    <AppUserProflePopover />
                </div>
            </div>

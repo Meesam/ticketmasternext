@@ -14,3 +14,11 @@ export interface LoginResponse {
     FirstName:string;
     LastName:string;
 }
+
+export interface ProjectResponse {
+    id:number;
+    projectTitle: string;
+    projectDescription:string;
+    projectStartDate:Date
+    projectEndDate:Date,
+}
