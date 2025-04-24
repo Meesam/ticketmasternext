@@ -14,20 +14,20 @@ const ProjectCardAction  = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <MoreVertical size={18} />
+                <MoreVertical size={18} className="cursor-pointer" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
                     <EyeIcon />
                     <span className="text-xs">View</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
                     <EditIcon />
                     <span className="text-xs">Edit</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer"                                                                                                                                                                                                                                        >
                     <TrashIcon />
                     <span className="text-xs">Delete</span>
                 </DropdownMenuItem>

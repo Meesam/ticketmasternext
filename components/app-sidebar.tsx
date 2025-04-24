@@ -1,5 +1,6 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+"use client"
 
+import { Home, Settings, FolderKanbanIcon, UsersIcon, ListTodoIcon, SheetIcon } from "lucide-react"
 import {
     Sidebar,
     SidebarContent,
@@ -10,37 +11,45 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Image from "next/image";
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 // Menu items.
 const items = [
     {
         title: "Home",
-        url: "#",
+        url: "/admin/dashboard",
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
-        icon: Inbox,
+        title: "Project",
+        url: "/admin/project",
+        icon: FolderKanbanIcon,
     },
     {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
+        title: "Users",
+        url: "/admin/users",
+        icon: UsersIcon,
     },
     {
-        title: "Search",
-        url: "#",
-        icon: Search,
+        title: "Tasks",
+        url: "/admin/tasks",
+        icon: ListTodoIcon,
+    },
+    {
+        title: "Sprints",
+        url: "/admin/sprints",
+        icon: SheetIcon,
     },
     {
         title: "Settings",
-        url: "#",
+        url: "/admin/setting",
         icon: Settings,
     },
 ]
 
 export function AppSidebar() {
+    const pathname = usePathname();
     return (
         <Sidebar>
             <SidebarContent className="bg-white dark:bg-gray-950">
@@ -58,7 +67,7 @@ export function AppSidebar() {
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url}>
+                                        <a href={item.url} className={clsx({"bg-primary text-white": item.url === pathname})}>
                                             <item.icon />
                                             <span>{item.title}</span>
                                         </a>

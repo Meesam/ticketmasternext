@@ -17,7 +17,7 @@ import AppMails from "@/app/admin/adminComponents/appMails";
 
 const AdminAppHeader = () =>{
    return (
-       <header className="border-b border-gray-200 dark:border-gray-700 h-16 px-5 shadow">
+       <header className="border-b border-gray-200 dark:border-gray-700 py-3 px-5 shadow">
            <div className="flex items-center justify-between h-full">
                <div>
                    <Dialog>

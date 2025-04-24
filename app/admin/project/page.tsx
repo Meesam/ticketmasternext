@@ -1,64 +1,41 @@
-import {Button} from "@/components/ui/button";
-import {Filter, PlusIcon, ArrowDownUpIcon} from "lucide-react";
-import {ProjectResponse} from "@/types/globals";
+"use client"
+
+import { ProjectResponse} from "@/types/globals";
 import ProjectCard from "@/app/admin/project/components/projectCard";
-
-const products:ProjectResponse[] = [
-    {
-        id:1,
-        projectTitle:'First Project',
-        projectDescription:"First project description",
-        projectStartDate:new Date(),
-        projectEndDate:new Date(),
-    },
-    {
-        id:2,
-        projectTitle:'Second Project',
-        projectDescription:"Second project description",
-        projectStartDate:new Date(),
-        projectEndDate:new Date(),
-    },
-    {
-        id:3,
-        projectTitle:'Third Project',
-        projectDescription:"Third project description",
-        projectStartDate:new Date(),
-        projectEndDate:new Date(),
-    },
-    {
-        id:4,
-        projectTitle:'Fourth Project',
-        projectDescription:"Fourth project description",
-        projectStartDate:new Date(),
-        projectEndDate:new Date(),
-    }
-]
-
+import ProjectFilter from "@/app/admin/project/components/projectFilter";
+import ProjectSorting from "@/app/admin/project/components/projectSorting";
+import ProjectAddEdit from "@/app/admin/project/components/projectAddEdit";
+import {getAllProjects} from "@/app/admin/project/projectServices";
+import React, {Suspense} from "react";
+import Loading from "@/app/admin/project/loading";
 
 const Project = ()=>{
+   const [projects, setProjects] = React.useState([]);
+
+    React.useEffect(()=>{
+        const fetchProjects = async()=>{
+            const res = await getAllProjects()
+            setProjects(res.response)
+        }
+        fetchProjects()
+    },[])
+
+    console.log(projects)
+
     return (
-        <div className="w-full h-full flex flex-col gap-5 p-5">
-           <div className="flex items-center justify-between w-full h-14">
-              <span className="font-medium  text-2xl">Projects</span>
-               <div className="flex items-center gap-3">
-                   <Button>
-                       <Filter />
-                       Filter
-                   </Button>
-                   <Button>
-                       <PlusIcon />
-                       Add New
-                   </Button>
-                   <Button>
-                       <ArrowDownUpIcon />
-                       Sort by
-                   </Button>
-               </div>
-           </div>
-            <div className="grow">
-                <div className="flex flex-wrap items-center gap-3">
+        <Suspense fallback={<Loading />}>
+            <div className="w-full h-full flex flex-col gap-5 p-5">
+                <div className="flex items-center justify-between w-full h-14">
+                    <span className="font-medium  text-2xl">Projects</span>
+                    <div className="flex items-center gap-3">
+                        <ProjectFilter />
+                        <ProjectSorting />
+                        <ProjectAddEdit />
+                    </div>
+                </div>
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                     {
-                        products.map((product:ProjectResponse)=>{
+                        projects.map((product:ProjectResponse)=>{
                             return (
                                 <div key={product.id}>
                                     <ProjectCard project={product} />
@@ -66,9 +43,11 @@ const Project = ()=>{
                             )
                         })
                     }
+
                 </div>
             </div>
-        </div>
+        </Suspense>
+
     )
 }
 

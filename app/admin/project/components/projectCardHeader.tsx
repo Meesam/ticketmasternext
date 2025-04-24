@@ -2,7 +2,7 @@ import ProjectCardAction from "@/app/admin/project/components/projectCardAction"
 
 const ProjectTitleFirstLetter = ({name}:{name:string}) =>{
   return (
-      <div className="h-10 w-10 rounded-sm border flex items-center justify-center text-xl leading-tight">
+      <div className="h-10 w-10 rounded-sm shadow-2xl text-white flex items-center justify-center text-xl leading-tight bg-primary">
           {name.charAt(0).toUpperCase()}
       </div>
   )
